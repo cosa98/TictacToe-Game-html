@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>calculator</title>
+	<style type="text/css">
+	body {
+		background-color: black;
+	}
+
+h1{
+  text-align: center;
+  color: #fff;
+}
+div {
+  text-align: center;
+  margin: 0px auto;
+    text-align: center;
+  margin: auto;
+}
+
+	</style>
+</head>
+<body>
+	<h1>
+		Tic tac toe game:
+	</h1>
+	<div class="wrap">
+		<form name="cal">
+			<input style="width: 50px; height: 50px; font-size: 26px;" type="text" name="1" id="1" onKeyUp="checkInput(this);">
+			<input style="width: 50px; height: 50px; font-size: 26px;" type="text" name="2" id="2" onKeyUp="checkInput(this);">
+			<input style="width: 50px; height: 50px; font-size: 26px;" type="text" name="3" id="3" onKeyUp="checkInput(this);">
+			<br><br>
+			<input style="width: 50px; height: 50px; font-size: 26px;" type="text" name="4" id="4" onKeyUp="checkInput(this);">
+			<input style="width: 50px; height: 50px; font-size: 26px;" type="text" name="5" id="5" onKeyUp="checkInput(this);">
+			<input style="width: 50px; height: 50px; font-size: 26px;" type="text" name="6" id="6" onKeyUp="checkInput(this);">
+			<br><br>
+			<input style="width: 50px; height: 50px; font-size: 26px;" type="text" name="7" id="7" onKeyUp="checkInput(this);">
+			<input style="width: 50px; height: 50px; font-size: 26px;" type="text" name="8" id="8" onKeyUp="checkInput(this);">
+			<input style="width: 50px; height: 50px; font-size: 26px;" type="text" name="9" id="9" onKeyUp="checkInput(this);">
+			<br><br>
+			<p style="color:red">X je pobjedio <label id="xWinnerCounter">0</label> puta</p>
+			<p style="color:red">O je pobjedio <label id="oWinnerCounter">0</label> puta</p>
+			<p style="color:red">Nerijeseno je bilo <label id="drawCounter">0</label> puta</p>
+			<br><br>
+			
+		</form>
+		
+	</div>
+
+</body>
+
+<script type="text/javascript">
+	var xWinnerCounter = 0;
+	var yWinnerCounter = 0;
+	var drawCounter = 0;
+
+	function checkInput(e)
+	{
+		var value = e.value;
+		if(value != 'x' && value != 'o')
+		{
+			e.value = '';
+			return;
+		}
+
+		if(value == 'x')
+		{
+             e.style.backgroundColor  = "red";
+		}
+
+		if(value == 'o')
+		{
+			e.style.backgroundColor  = "green";
+		}
+
+		checkWinner();
+	}
+
+	function checkWinner()
+	{
+		var value1 = document.getElementById('1').value;
+		var value2 = document.getElementById('2').value;
+		var value3 = document.getElementById('3').value;
+		var value4 = document.getElementById('4').value;
+		var value5 = document.getElementById('5').value;
+		var value6 = document.getElementById('6').value;
+		var value7 = document.getElementById('7').value;
+		var value8 = document.getElementById('8').value;
+		var value9 = document.getElementById('9').value;
+
+		if(value1 != '' && value5 != '' && value9 != '' && value1 == value5 && value1 == value9)
+		{
+			alert('Winner is ' + value1);
+			clearInput();
+			return;
+		}
+
+
+		if(value3 != '' && value5 != '' && value7 != '' && value3 == value5 && value3 == value7)
+		{
+			alert('Winner is ' + value3);
+			clearInput();
+			return;
+		}
+
+
+		if(value1 != '' && value4 != '' && value7 != '' && value1 == value4 && value1 == value7)
+		{
+			alert('Winner is ' + value1);
+			clearInput();
+			return;
+		}
+
+		if(value2 != '' && value5 != '' && value8 != '' && value2 == value5 && value2 == value8)
+		{
+			alert('Winner is ' + value2);
+			clearInput();
+			return;
+		}
+
+		if(value3 != '' && value6 != '' && value9 != '' && value3 == value6 && value3 == value9)
+		{
+			alert('Winner is ' + value3);
+			clearInput();
+			return;
+		}
+
+
+		if(value1 != '' && value2 != '' && value3 != '' && value1 == value2 && value1 == value3)
+		{
+			alert('Winner is ' + value1);
+			clearInput();
+			return;
+		}
+
+		if(value4 != '' && value5 != '' && value6 != '' && value4 == value5 && value4 == value6)
+		{
+			alert('Winner is ' + value4);
+			clearInput();
+			return;
+		}
+
+		if(value7 != '' && value8 != '' && value9 != '' && value7 == value8 && value7 == value9)
+		{
+			alert('Winner is ' + value7);
+			clearInput();
+			return;
+		}
+
+		if(value1 != '' && value2 != '' && value3 != '' && value4 != '' && value5 != '' && value6 != '' && value7 != '' && value8 != '' && value9 != '' )
+		{
+			alert('Draw');
+			clearInput();
+			return;
+		}
+	}
+
+	function clearInput()
+	{
+		
+	}
+</script>
+</html>
